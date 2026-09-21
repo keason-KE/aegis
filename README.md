@@ -1,14 +1,28 @@
 # Aegis — AI Agent Identity and Access Control
 
+[![Tests](https://github.com/keason-KE/aegis/actions/workflows/tests.yml/badge.svg)](https://github.com/keason-KE/aegis/actions/workflows/tests.yml)
+
+[Case study](docs/CASE_STUDY.md) · [Fresh setup](docs/SETUP.md) · [Security assessment](docs/SECURITY_ASSESSMENT.md)
+
 ## My role
 
 I defined the security requirements and directed AI-assisted development of Aegis. The implementation was AI-assisted; I do not represent it as independently hand-coded software. This project demonstrates my work specifying identity boundaries, permissions, approval requirements, and security scenarios.
 
-## Portfolio review status
+## Validation and limits
 
 The documentation below describes the local research prototype. Historical results in the security assessment must be distinguished from current reproduction results. Container isolation and systematic live-model prompt-injection testing are not established by passing application tests. Use synthetic data only; never publish local demo configuration, signing material, databases, or authenticated launch URLs.
 
 A browser-based security research lab for three synthetic agents. Aegis authenticates every tool request, checks role and task-level resource grants, requires a separate human decision for account changes, and records the result.
+
+## See the gateway in action
+
+These screenshots show real requests in a disposable lab with synthetic data.
+
+![Authorized support request returns HTTP 200](docs/images/authorized-task.png)
+
+![Cross-role finance request returns HTTP 403](docs/images/cross-role-denied.png)
+
+Fresh-environment validation on September 21, 2026: **124 tests passed** on Python 3.14.4. GitHub Actions also runs the suite and 16 synthetic HTTP checks on Python 3.12 and 3.13; the badge links to the current result.
 
 ## Start the demo
 
