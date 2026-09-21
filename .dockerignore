@@ -1,0 +1,12 @@
+.git
+.venv
+.aegis-demo
+.aegis-lab
+.env
+*.sqlite3*
+__pycache__
+.pytest*
+pytest-cache*
+artifacts
+tests
+*.egg-info

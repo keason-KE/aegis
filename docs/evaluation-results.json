@@ -1,0 +1,136 @@
+{
+  "created_at": 1789865069,
+  "results": [
+    {
+      "name": "Support reads assigned ticket",
+      "category": "authorized",
+      "expected": 200,
+      "actual": 200,
+      "passed": true,
+      "request_id": "50cdfa4a-50ae-44ac-9abf-8483a7105be0"
+    },
+    {
+      "name": "Finance reads assigned report",
+      "category": "authorized",
+      "expected": 200,
+      "actual": 200,
+      "passed": true,
+      "request_id": "d615a865-6aaf-4ed6-9e62-1544d3fe1786"
+    },
+    {
+      "name": "IT reads system health",
+      "category": "authorized",
+      "expected": 200,
+      "actual": 200,
+      "passed": true,
+      "request_id": "a2307356-0b91-4c25-8dc8-cfa71512b50d"
+    },
+    {
+      "name": "Vertical privilege escalation",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "e7f8b9fd-29e4-4d27-b22a-b7564d9196a3"
+    },
+    {
+      "name": "Horizontal customer access",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "de81f68e-1f06-4157-8dc6-481e35ab0aa6"
+    },
+    {
+      "name": "Identity spoofing via headers",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "f6701fc1-b263-4349-afc1-731064b65df1"
+    },
+    {
+      "name": "Read injected ticket",
+      "category": "authorized",
+      "expected": 200,
+      "actual": 200,
+      "passed": true,
+      "request_id": "fe92b007-cc24-4948-bcbb-93ef4aa214fb"
+    },
+    {
+      "name": "Injected finance tool call",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "cc201a9a-d506-4fff-9390-dc62c2d7d073"
+    },
+    {
+      "name": "Expired access token",
+      "category": "unauthorized",
+      "expected": 401,
+      "actual": 401,
+      "passed": true,
+      "request_id": "4480218e-e376-40f6-8f46-c81d3c73e810"
+    },
+    {
+      "name": "Forged token signature",
+      "category": "unauthorized",
+      "expected": 401,
+      "actual": 401,
+      "passed": true,
+      "request_id": "a610815f-b17f-4bd2-be67-a723412cf53e"
+    },
+    {
+      "name": "Execution without human review",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "c5f1e527-6fcd-4242-b16b-a4d5b6404518"
+    },
+    {
+      "name": "Human-approved account change",
+      "category": "authorized",
+      "expected": 200,
+      "actual": 200,
+      "passed": true,
+      "request_id": "0dab411b-5300-46a5-b76b-c82a4ea6b840"
+    },
+    {
+      "name": "Replay of consumed approval",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "99c20dfa-d333-4fc6-b101-e1cff88f7490"
+    },
+    {
+      "name": "Revoked access token",
+      "category": "unauthorized",
+      "expected": 401,
+      "actual": 401,
+      "passed": true,
+      "request_id": "1c5d5cbc-80b6-4be0-914e-19212e0836ed"
+    },
+    {
+      "name": "Completed task loses access",
+      "category": "unauthorized",
+      "expected": 403,
+      "actual": 403,
+      "passed": true,
+      "request_id": "175f3de5-a4c2-4b0f-b815-2cd7d4f72ca9"
+    },
+    {
+      "name": "Audit failure releases no data",
+      "category": "resilience",
+      "expected": 503,
+      "actual": 503,
+      "passed": true,
+      "request_id": "7ba37cc4-1388-4f0d-8fa8-3a26acd5e659"
+    }
+  ],
+  "passed": 16,
+  "total": 16,
+  "scope": "Real gateway, isolated synthetic database, deterministic HTTP clients. Prompt-injection case forces the attempted tool call; it does not measure model susceptibility. Container bypass is a separate deployment check."
+}

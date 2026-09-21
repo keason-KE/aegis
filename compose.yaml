@@ -1,0 +1,52 @@
+name: aegis-lab
+services:
+  gateway:
+    build:
+      context: .
+      target: gateway
+    ports:
+      - "127.0.0.1:8876:8000"
+    volumes:
+      - gateway-data:/data
+    secrets:
+      - support
+      - finance
+      - it_admin
+      - signing
+    networks: [agent-net]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  agent:
+    build:
+      context: .
+      target: agent
+    depends_on:
+      gateway:
+        condition: service_healthy
+    secrets: [support]
+    networks: [agent-net]
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+networks:
+  agent-net:
+    internal: true
+volumes:
+  gateway-data:
+secrets:
+  support:
+    file: .aegis-lab/support
+  finance:
+    file: .aegis-lab/finance
+  it_admin:
+    file: .aegis-lab/it_admin
+  signing:
+    file: .aegis-lab/signing

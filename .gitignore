@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.pytest_tmp*/
+pytest-cache-files-*/
+*.egg-info/
+*.sqlite3*
+.env
+.aegis-demo/
+.aegis-lab/
+artifacts/
